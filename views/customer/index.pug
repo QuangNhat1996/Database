@@ -1,0 +1,31 @@
+extends layout_custom
+
+block content 
+  h3 
+    a(href='/customer/create') Create New
+  h1 Customer List 
+    table 
+      thead 
+        tr 
+          th ID
+          th FullName
+          th Email 
+          th Phone 
+          th Image 
+          th Action
+      tbody 
+        if customer !="" 
+          each item in customer 
+            tr 
+              td= item._id
+              td= item.fullname 
+              td= item.email 
+              td= item.phone 
+              td
+                img(src=`images/${item.image}`, style='width:100px;height:auto')
+              td
+                a(href=`customer/update/${item._id}`) Update | 
+                a(href=`customer/delete/${item._id}`) Delete
+
+        else 
+          td(colspan="4") no data        

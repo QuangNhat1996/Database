@@ -1,0 +1,21 @@
+extends layout_custom 
+
+block content 
+  h1 
+  form(method="post", action="/customer/create", enctype="multipart/form-data")
+    div 
+      label(for="fulname") Full name
+      input#fullname(name="fullname")
+    div 
+      label(for="email") Email 
+      input#email(name="email")
+    div 
+      label(for="phone") Phone
+      input#phone(name="phone")
+    div 
+      label(for="image") Image 
+      input#image(name="image", type="file")
+    div 
+      input(type="submit", value="Create")  
+      
+

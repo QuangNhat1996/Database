@@ -1,0 +1,25 @@
+extends layout_custom 
+
+block content 
+  h1  Update Custom
+    form(method="post", action=`/customer/update/${customers._id}`, enctype="multipart/form-data")
+      input(type="hidden",name ="id", value=customers._id) 
+      div 
+        label(for="fulname") Full name
+        input#fullname(name="fullname", value=customers.fullname)
+      div 
+        label(for="email") Email 
+        input#email(name="email", value=customers.email)
+      div 
+        label(for="phone") Phone
+        input#phone(name="phone", value= customers.phone)
+      if customers.image != undefined
+        div
+          img(src=`/images/${customers.image}`, style='width:100px;height:auto;')
+      div 
+        label(for="image") Image 
+        input#image(name="image", type="file")
+      div 
+        input(type="submit", value="Update")  
+      
+
